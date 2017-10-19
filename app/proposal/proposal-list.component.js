@@ -10,9 +10,9 @@ var core_1 = require("@angular/core");
 var proposal_1 = require("./proposal");
 var ProposalListComponent = /** @class */ (function () {
     function ProposalListComponent() {
-        this.proposalOne = new proposal_1.Proposal(15, "HeyyYo Company", "http://jj-portfolio.com", "Angular", 150, 126, 15, "jjkeeney129285@gmail.com");
-        this.proposalTwo = new proposal_1.Proposal(15, "HyYo Company", "http://jj-portfolio.com", "Angular", 150, 150, 15, "jjkeeney129285@gmail.com");
-        this.proposalThree = new proposal_1.Proposal(15, "HeyY Company", "http://jj-portfolio.com", "Angular", 150, 120, 15, "jjkeeney129285@gmail.com");
+        this.proposalOne = new proposal_1.Proposal(14, "HeyyYo Company", "http://jj-portfolio.com", "Angular", 150, 126, 15, "jjkeeney129285@gmail.com");
+        this.proposalTwo = new proposal_1.Proposal(19, "HyYo Company", "http://jj-portfolio.com", "Angular", 150, 150, 15, "jjkeeney129285@gmail.com");
+        this.proposalThree = new proposal_1.Proposal(10, "HeyY Company", "http://jj-portfolio.com", "Angular", 150, 120, 15, "jjkeeney129285@gmail.com");
         this.proposals = [this.proposalOne, this.proposalTwo, this.proposalThree];
     }
     ProposalListComponent = __decorate([

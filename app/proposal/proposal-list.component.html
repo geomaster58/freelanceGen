@@ -1,4 +1,4 @@
 <h1>Proposal List</h1>
 <div *ngFor="let prop of proposals">
-  {{prop.id}} - {{prop.customer}}: {{prop.portfolio_url}}
+ <a routerLink="/proposal/{{prop.id}}"> {{prop.customer}}: {{prop.portfolio_url}}</a>
 </div>
