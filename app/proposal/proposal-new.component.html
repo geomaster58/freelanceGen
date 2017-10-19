@@ -12,6 +12,9 @@
        #customer ="ngModel"
        [(ngModel)]="proposal.customer"
        >
+       <div [hidden]= "customer.valid || customer.pristine">
+         Customer Name is Required
+       </div>
      </div>
    </form>
    <form #proposalForm="ngForm">
@@ -26,6 +29,9 @@
        #portfolio_url ="ngModel"
        [(ngModel)]="proposal.portfolio_url"
        >
+       <div [hidden]= "portfolio_url.valid || portfolio_url.pristine">
+         Portfolio Url is required
+       </div>
      </div>
    </form>
    <form #proposalForm="ngForm">
@@ -40,6 +46,9 @@
        #hourly_rate ="ngModel"
        [(ngModel)]="proposal.hourly_rate"
        >
+       <div [hidden]= "hourly_rate.valid || hourly_rate.pristine">
+         Hourly rate is required
+       </div>
      </div>
    </form>
    <form #proposalForm="ngForm">
@@ -54,6 +63,9 @@
        #tools ="ngModel"
        [(ngModel)]="proposal.tools"
        >
+       <div [hidden]= "tools.valid || tools.pristine">
+         A list of tools is required
+       </div>
      </div>
    </form>
    <form #proposalForm="ngForm">
@@ -68,6 +80,9 @@
        #estimated_hours ="ngModel"
        [(ngModel)]="proposal.estimated_hours"
        >
+       <div [hidden]= "estimated_hours.valid || estimated_hours.pristine">
+         You need to enter the estimated hours
+       </div>
      </div>
    </form>
    <form #proposalForm="ngForm">
@@ -82,6 +97,9 @@
        #weeks_to_compelete ="ngModel"
        [(ngModel)]="proposal.weeks_to_compelete"
        >
+       <div [hidden]= "weeks_to_compelete.valid || weeks_to_compelete.pristine">
+         You need to enter the weeks estimated to complete
+       </div>
      </div>
    </form>
    <form #proposalForm="ngForm">
@@ -91,7 +109,6 @@
        type="text"
        id="client_email"
        placeholder="0"
-       required
        name="client_email"
        #client_email ="ngModel"
        [(ngModel)]="proposal.client_email"
