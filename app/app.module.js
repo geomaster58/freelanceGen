@@ -11,6 +11,7 @@ var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var app_component_1 = require("./app.component");
 var homepage_component_1 = require("./homepage/homepage.component");
+var ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
 var app_routing_module_1 = require("./app-routing.module");
 var documents_component_1 = require("./documents/documents.component");
 var proposal_list_component_1 = require("./proposal/proposal-list.component");
@@ -24,7 +25,8 @@ var AppModule = /** @class */ (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 app_routing_module_1.AppRoutingModule,
-                forms_1.FormsModule
+                forms_1.FormsModule,
+                ng_bootstrap_1.NgbModule.forRoot()
             ],
             declarations: [
                 app_component_1.AppComponent,
@@ -32,7 +34,7 @@ var AppModule = /** @class */ (function () {
                 documents_component_1.DocumentsComponent,
                 proposal_list_component_1.ProposalListComponent,
                 proposal_new_component_1.ProposalNewComponent,
-                proposal_show_component_1.ProposalShowComponent
+                proposal_show_component_1.ProposalShowComponent,
             ],
             bootstrap: [
                 app_component_1.AppComponent
