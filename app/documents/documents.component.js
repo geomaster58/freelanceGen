@@ -5,42 +5,39 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var Rx_1 = require("rxjs/Rx");
+var document_service_1 = require("./document.service");
 var DocumentsComponent = /** @class */ (function () {
-    function DocumentsComponent() {
+    function DocumentsComponent(documentService) {
+        this.documentService = documentService;
         this.pageTitle = "Document Dashboard";
-        this.documents = [
-            {
-                title: "My First Doc",
-                description: "Blah Blah",
-                file_url: "http://google.com",
-                updated_at: "10/08/17",
-                image_url: "http://maxpixel.freegreatpicture.com/static/photo/1x/Keyboard-Freelancer-Job-Search-Software-Programming-2529270.jpg"
-            },
-            {
-                title: "My Second Doc",
-                description: "Blah Blah",
-                file_url: "http://google.com",
-                updated_at: "10/08/17",
-                image_url: "http://maxpixel.freegreatpicture.com/static/photo/1x/Keyboard-Freelancer-Job-Search-Software-Programming-2529270.jpg"
-            },
-            {
-                title: "My Last Doc",
-                description: "Blah Blah",
-                file_url: "http://google.com",
-                updated_at: "10/08/17",
-                image_url: "http://maxpixel.freegreatpicture.com/static/photo/1x/Keyboard-Freelancer-Job-Search-Software-Programming-2529270.jpg"
-            }
-        ];
+        this.documents = [];
+        this.mode = "Observable";
     }
+    DocumentsComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        var timer = Rx_1.Observable.timer(0, 3000);
+        timer.subscribe(function () { return _this.getDocuments(); });
+    };
+    DocumentsComponent.prototype.getDocuments = function () {
+        var _this = this;
+        this.documentService.getDocuments()
+            .subscribe(function (documents) { return _this.documents = documents; }, function (error) { return _this.errorMessage = error; });
+    };
     DocumentsComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: "documents",
             templateUrl: "documents.component.html",
-            styleUrls: ["documents.component.css"]
-        })
+            styleUrls: ["documents.component.css"],
+            providers: [document_service_1.DocumentService]
+        }),
+        __metadata("design:paramtypes", [document_service_1.DocumentService])
     ], DocumentsComponent);
     return DocumentsComponent;
 }());

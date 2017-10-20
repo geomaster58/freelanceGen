@@ -6,17 +6,18 @@
   <div  class="card-block">
 
     <h4 class="card-title">{{doc.title}}</h4>
+    <p class="card-text">
+      <small class="text-muted">
+        {{doc.updated_at | date}}
+      </small>
+    </p>
     <p class="card-text"><em>{{doc.description}}</em></p>
     <a href="{{doc.file_url}}">
       <div class="btn btn-success">
         Download File
       </div>
     </a>
-    <p class="card-text">
-      <small class="text-muted">
-        {{doc.updated_at}}
-      </small>
-    </p>
+    
 
     
 

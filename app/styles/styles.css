@@ -1,8 +1,13 @@
 body {
   background-color: #252830;
+  font-family: 'Oswald', sans-serif;
 }
 
 .headlineh1 {
   color: white;
+  margin-bottom: 40px;
+}
+
+.headline-new {
   margin-bottom: 40px;
 }

@@ -14,7 +14,8 @@ var HomepageComponent = /** @class */ (function () {
         core_1.Component({
             moduleId: module.id,
             selector: "homepage",
-            templateUrl: "homepage.component.html"
+            templateUrl: "homepage.component.html",
+            styleUrls: ["homepage.component.css"]
         })
     ], HomepageComponent);
     return HomepageComponent;
