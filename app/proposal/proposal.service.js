@@ -15,8 +15,16 @@ var Rx_1 = require("rxjs/Rx");
 var ProposalService = /** @class */ (function () {
     function ProposalService(http) {
         this.http = http;
-        this.proposalsUrl = 'http://localhost:3002/freelance_proposals.json';
+        this.proposalsUrl = 'http://localhost:3002/freelance_proposals';
     }
+    ProposalService.prototype.getProposal = function (id) {
+        return this.http.get(this.proposalsUrl + "/" + id + ".json");
+    };
+    ProposalService.prototype.createProposal = function (proposal) {
+        var headers = new http_1.Headers({ "Content-Type": "application/json" });
+        var options = new http_1.RequestOptions({ headers: headers });
+        return this.http.post(this.proposalsUrl, JSON.stringify(proposal), { headers: headers }).map(function (res) { return res.json(); });
+    };
     ProposalService.prototype.getProposals = function () {
         return this.http.get(this.proposalsUrl)
             .map(function (response) { return response.json(); })

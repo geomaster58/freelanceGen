@@ -2,7 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {Proposal} from "./proposal";
 import { Observable } from "rxjs/Rx";
 import { ProposalService} from "./proposal.service";
-
+import {Router} from "@angular/router";
 
 @Component ({
  moduleId: module.id,
@@ -17,6 +17,7 @@ export class ProposalListComponent implements OnInit {
 
   constructor (
     private proposalService: ProposalService,
+    private router : Router
     ){}
 ngOnInit(){
   let timer = Observable.timer(0, 3000);
@@ -31,5 +32,9 @@ getProposals(){
           );
   }
 
+goToShow(proposal : Proposal) : void {
+  let link = ["/proposal", proposal.id];
+  this.router.navigate(link);
+}
 
 }

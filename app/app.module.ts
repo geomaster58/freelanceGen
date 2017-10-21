@@ -13,6 +13,7 @@ import { ProposalNewComponent } from "./proposal/proposal-new.component";
 import { ProposalShowComponent } from "./proposal/proposal-show.component";
 import { ProposalService} from "./proposal/proposal.service";
 
+
 @NgModule({
   imports: [
     BrowserModule,
