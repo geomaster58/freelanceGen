@@ -1,5 +1,7 @@
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {Proposal} from "./proposal";
+import { Observable } from "rxjs/Rx";
+import { ProposalService} from "./proposal.service";
 
 
 @Component ({
@@ -8,10 +10,26 @@ import {Proposal} from "./proposal";
  templateUrl: "proposal-list.component.html",
  styleUrls: ["proposal-list.component.css"]
 })
-export class ProposalListComponent {
-  proposalOne : Proposal = new Proposal(14, "HeyyYo Company", "http://jj-portfolio.com", "Angular", 150, 126, 15, "jjkeeney129285@gmail.com")
-  proposalTwo : Proposal = new Proposal(19, "HyYo Company", "http://jj-portfolio.com", "Angular", 150, 150, 15, "jjkeeney129285@gmail.com")
-  proposalThree : Proposal = new Proposal(10, "HeyY Company", "http://jj-portfolio.com", "Angular", 150, 120, 15, "jjkeeney129285@gmail.com")
+export class ProposalListComponent implements OnInit {
+  proposals : Proposal[];
+  errorMessage : string;
+  mode = "Observable";
 
-  proposals: Proposal[] = [this.proposalOne, this.proposalTwo, this.proposalThree ]
+  constructor (
+    private proposalService: ProposalService,
+    ){}
+ngOnInit(){
+  let timer = Observable.timer(0, 3000);
+    timer.subscribe(() => this.getProposals());
+}
+
+getProposals(){
+    this.proposalService.getProposals()
+        .subscribe(
+          proposals => this.proposals = proposals,
+          error => this.errorMessage = <any>error
+          );
+  }
+
+
 }

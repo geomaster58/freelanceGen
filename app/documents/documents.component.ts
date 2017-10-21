@@ -1,7 +1,7 @@
-import  {Component, OnInit} from "@angular/core";
-import {Observable} from "rxjs/Rx";
-import {DocumentService} from "./document.service";
-import {Document} from "./document";
+import  { Component, OnInit } from "@angular/core";
+import { Observable } from "rxjs/Rx";
+import { DocumentService } from "./document.service";
+import { Document } from "./document";
 
 @Component({
   moduleId: module.id,
@@ -17,7 +17,7 @@ export class DocumentsComponent implements OnInit{
   mode = "Observable";
 
   constructor(
-    private documentService: DocumentService;
+    private documentService: DocumentService,
     ){}
 
   ngOnInit() {
