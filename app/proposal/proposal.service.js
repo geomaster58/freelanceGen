@@ -15,7 +15,7 @@ var Rx_1 = require("rxjs/Rx");
 var ProposalService = /** @class */ (function () {
     function ProposalService(http) {
         this.http = http;
-        this.proposalsUrl = 'http://localhost:3002/freelance_proposals';
+        this.proposalsUrl = 'https://freelance-proposal-api.herokuapp.com/freelance_proposals';
     }
     ProposalService.prototype.getProposal = function (id) {
         return this.http.get(this.proposalsUrl + "/" + id + ".json");
